@@ -1,0 +1,20 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: ca.crt
+    server: https://kubernetes.docker.internal:6443
+  name: docker-desktop
+contexts:
+- context:
+    cluster: docker-desktop
+    namespace: default
+    user: devops
+  name: devops-context
+current-context: ""
+kind: Config
+preferences: {}
+users:
+- name: devops
+  user:
+    client-certificate: devops.crt
+    client-key: devops.key
